@@ -1,0 +1,15 @@
+{application, base_kernel,
+  [{description, "An OTP application"},
+    {vsn, "0.1.0"},
+    {registered, []},
+    {mod, {base_kernel_app, []}},
+    {applications,
+      [kernel,
+        stdlib
+      ]},
+    {env,[]},
+    {modules, [base_kernel_app]},
+
+    {licenses, ["Apache 2.0"]},
+    {links, []}
+  ]}.
