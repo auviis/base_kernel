@@ -1,6 +1,7 @@
 -module (base_kernel_net).
 
 -export([decode/2, encode/2]).
+-export([decode/3, encode/3]).
 
 -export([
 	decode_int8/1
@@ -43,7 +44,8 @@ decode_int16(Bin) ->	base_net_encoder:decode_int16(Bin).
 decode_int32(Bin) ->	base_net_encoder:decode_int32(Bin).
 decode_int64(Bin) ->	base_net_encoder:decode_int64(Bin).
 decode_string(Bin) ->	base_net_encoder:decode_string(Bin).
-decode(Cmd, Bin) ->	base_net_encoder:decode(Cmd, Bin).
+decode(Cmd, Bin) ->	base_net_encoder:decode(Cmd, Bin,protocol).
+decode(Cmd, Bin,ModuleDecode) ->	base_net_encoder:decode(Cmd, Bin,ModuleDecode).
 decode_list(F, Bin) ->	base_net_encoder:decode_list(F, Bin).
 %% ---------------------------------------------------------
 encode_int8(Val, Bin) ->	base_net_encoder:encode_int8(Val, Bin).
@@ -51,7 +53,8 @@ encode_int16(Val, Bin) ->	base_net_encoder:encode_int16(Val, Bin).
 encode_int32(Val, Bin) ->	base_net_encoder:encode_int32(Val, Bin).
 encode_int64(Val, Bin) ->	base_net_encoder:encode_int64(Val, Bin).
 encode_string(S, Bin) ->	base_net_encoder:encode_string(S, Bin).
-encode(Cmd, List) ->	base_net_encoder:encode(Cmd, List).
+encode(Cmd, List) ->	base_net_encoder:encode(Cmd, List,protocol).
+encode(Cmd, List,ModuleEncode) ->	base_net_encoder:encode(Cmd, List,ModuleEncode).
 encode_list(F, List, Bin) ->	base_net_encoder:encode_list(F, List, Bin).
 
 %% ---------------------------------------------------------
