@@ -37,7 +37,10 @@
 	get_sock_crash_num/0,
 	stop_listening/0
 ]).
-
+-export ([
+	send/2,
+	disconnect/1
+]).
 %% ---------------------------------------------------------
 decode_int8(Bin) ->	base_net_encoder:decode_int8(Bin).
 decode_int16(Bin) ->	base_net_encoder:decode_int16(Bin).
@@ -75,6 +78,12 @@ websocket_info(Info,State) -> base_socket_handle:websocket_info(Info,State).
 terminate(Reason,Req,State) -> base_socket_handle:terminate(Reason,Req,State).
 get_sock_crash_num() -> base_socket_handle:get_sock_crash_num().
 
+%% ---------------------------------------------------------
+send(SocketPid,BinaryData) ->
+	base_socket_handle:send(SocketPid,BinaryData).
+disconnect(SocketPid) ->
+	base_socket_handle:disconnect(SocketPid).
+%% ---------------------------------------------------------
 stop_listening() ->
 	cowboy:stop_listener(http),
 	cowboy:stop_listener(https).
