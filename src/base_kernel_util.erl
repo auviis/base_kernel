@@ -11,6 +11,10 @@
     to_list_lower/1,
     to_binary/1,
     to_number/1,
+    hex_str_to_number/1,
+    reformat_number_default/1,
+    reformat_number/2,
+    to_list_integer/1,
     to_timestamp/1,
     to_wei/1,
     from_wei/1,
@@ -57,6 +61,10 @@ to_list(L) -> base_util:to_list(L).
 to_list_lower(L) -> base_util:to_list_lower(L).
 to_binary(L) -> base_util:to_binary(L).
 to_number(L) -> base_util:to_number(L).
+hex_str_to_number(String) -> base_util:hex_str_to_number(String).
+to_list_integer(Var) -> base_util:to_list_integer(Var).
+reformat_number(Var,Decimal) -> base_util:reformat_number(Var,Decimal).
+reformat_number_default(Var) -> base_util:reformat_number_default(Var).
 to_timestamp(L) -> base_util:to_timestamp(L).
 to_wei(M) -> base_util:to_wei(M).
 from_wei(W) -> base_util:from_wei(W).
