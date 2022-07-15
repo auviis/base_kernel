@@ -1,10 +1,12 @@
 -module (base_kernel_net).
-
+%% ---------------------------------------------------------
+%% ------------------------WEB SOCKET ----------------------
+%% ---------------------------------------------------------
 -export([decode/2, encode/2]).
 -export([decode/3, encode/3]).
 
 -export([
-	decode_int8/1
+	 decode_int8/1
 	,decode_int16/1
 	,decode_int32/1
 	,decode_int64/1
@@ -41,6 +43,53 @@
 	send/2,
 	disconnect/1
 ]).
+%% ---------------------------------------------------------
+%% ------------------------REST API   ----------------------
+%% ---------------------------------------------------------
+-export([
+	rest_init/2,
+	rest_allowed_methods/2,
+	rest_is_authorized/2,
+	rest_is_authorized/3,
+	rest_content_types_provided/2,
+	rest_content_types_accepted/2,
+	rest_terminate/3
+]).
+
+-export([
+	rest_get_handle/2,
+	rest_post_handle/2,
+	rest_response/3,
+	rest_get_response/3,
+	rest_post_response/3,
+	rest_file_response/3
+]).
+
+-export([
+	rest_token_validate/1,
+	rest_createAppleClientSecretToken/3,
+	rest_extractGoogleToken/1,
+	rest_extractFacebookToken/1,
+	rest_extractAppleToken/1,
+	rest_createToken/1,
+	rest_getEmail/1,
+	rest_getEmail/0,
+	rest_getUsername/1,
+	rest_getUsername/0,
+	rest_getUserId/1,
+	rest_getUserId/0,
+	rest_parser_header/1,
+	send_mail/3
+]).
+
+-export([
+	get_url_content/1,
+	post_url_content/2,
+	post_raw_url_content/2
+]).
+
+%% ---------------------------------------------------------
+%% ------------------------WEB SOCKET ----------------------
 %% ---------------------------------------------------------
 decode_int8(Bin) ->	base_net_encoder:decode_int8(Bin).
 decode_int16(Bin) ->	base_net_encoder:decode_int16(Bin).
@@ -87,3 +136,76 @@ disconnect(SocketPid) ->
 stop_listening() ->
 	cowboy:stop_listener(http),
 	cowboy:stop_listener(https).
+
+%% ---------------------------------------------------------
+%% ------------------------REST API   ----------------------
+%% ---------------------------------------------------------
+
+rest_init(Req, Opts) ->	base_rest_handle:init(Req, Opts).
+%
+rest_is_authorized(Req, State) ->	base_rest_handle:is_authorized(Req, State).
+
+rest_is_authorized(Authorized, Req, State) ->	base_rest_handle:is_authorized(Authorized,Req, State).
+%%
+rest_allowed_methods(Req, State) ->	base_rest_handle:allowed_methods(Req, State).
+%%
+rest_content_types_provided(Req, State) ->	base_rest_handle:content_types_provided(Req, State).
+
+rest_content_types_accepted(Req, State) ->	base_rest_handle:content_types_accepted(Req, State).
+
+rest_terminate(_Reason, _Req, _State) ->	base_rest_handle:terminate(_Reason, _Req, _State).
+
+rest_get_handle(Req, State) ->	base_rest_handle:get_handle(Req, State) .
+
+rest_post_handle (Req, State) ->	base_rest_handle:post_handle(Req, State) .
+
+rest_file_response(Req,File,State) ->	base_rest_handle:file_response(Req,File,State).
+
+rest_response(Req,Body,State) ->	base_rest_handle:response(Req,Body,State).
+
+rest_get_response(Req,Body,State) ->	base_rest_handle:get_response(Req,Body,State).
+
+rest_post_response(Req,Body,State) ->	base_rest_handle:post_response(Req,Body,State).
+
+
+rest_parser_header(Req) ->	base_rest_handle:parser_header(Req).
+
+rest_token_validate(Token) ->	base_rest_handle:token_validate(Token) .
+
+rest_extractAppleToken(RawToken) ->	base_rest_handle:extractAppleToken(RawToken).
+
+rest_extractFacebookToken(RawToken) ->	base_rest_handle:extractFacebookToken(RawToken).
+
+rest_extractGoogleToken(RawToken) ->	base_rest_handle:extractGoogleToken(RawToken).
+
+rest_createToken(List) ->	base_rest_handle:createToken(List).
+
+rest_createAppleClientSecretToken(ISS,IAT,EXP) ->	base_rest_handle:createAppleClientSecretToken(ISS,IAT,EXP).
+
+rest_getUserId(Req) ->	base_rest_handle:getUserId(Req).
+
+rest_getUserId() ->	base_rest_handle:getUserId().
+
+
+rest_getUsername(Req) ->	base_rest_handle:getUsername(Req).
+
+rest_getUsername() ->	base_rest_handle:getUsername().
+
+rest_getEmail(Req) ->	base_rest_handle:getEmail(Req).
+
+rest_getEmail() ->	base_rest_handle:getEmail().
+
+get_url_content(Url) -> get_url_content(Url,5).
+
+get_url_content(Url,Repeat) -> base_rest_handle:get_url_content(Url,Repeat).
+
+post_url_content(Url,FormData) -> post_url_content(Url, FormData,5).
+
+post_url_content(Url, FormData, Repeat) ->	base_rest_handle:post_url_content(Url, FormData,Repeat).
+
+post_raw_url_content(Url,BodyContent) -> post_raw_url_content(Url, BodyContent, 5).
+
+post_raw_url_content(Url, BodyContent, Repeat) ->	base_rest_handle:post_raw_url_content(Url, BodyContent,Repeat).
+
+send_mail(Receiver, Subject, Content) ->	base_rest_handle:post_raw_url_content(Receiver, Subject, Content).
+
