@@ -8,6 +8,8 @@
 -export([start/2, stop/1]).
 -export([start_net_service/1]).
 -export([
+  init_db_connection/0,
+  init_db_connection/1,
   connect_database/0,
   connect_database/1,
   get_db_connection/0,
@@ -95,7 +97,12 @@ stop_process(Module,Reason) ->
 stop_process(Module,Id,Reason) ->
   base_kernel_helper:stop_process(Module,Id,Reason).
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%     db service       %%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%     db service       %%%%%%%%%%%%%%%%%%%%%%%%
+init_db_connection() ->
+  base_kernel_helper:init_db_connection(default).
+init_db_connection(DatabaseId) ->
+  base_kernel_helper:init_db_connection(DatabaseId).
+
 connect_database() ->
   base_kernel_helper:connect_database().
 
