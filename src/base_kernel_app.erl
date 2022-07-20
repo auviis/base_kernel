@@ -25,6 +25,8 @@
   run_with_protect/3,
   create_process/2,
   create_process/3,
+  create_link_process/2,
+  create_link_process/3,
   process_apply/3,
   process_apply/4,
   get_process/1,
@@ -74,6 +76,11 @@ create_process(Module,Args) ->
 
 create_process(Module,Id,Args) ->
   base_kernel_helper:create_process(Module,Id,Args).
+
+create_link_process(Module,Args) ->
+  base_kernel_helper:create_link_process(Module,[],Args).
+create_link_process(Module,Id,Args) ->
+  base_kernel_helper:create_link_process(Module,Id,Args).
 
 process_apply(sync, Module, MFA) ->
   base_kernel_helper:process_apply(sync, Module,[], MFA);
