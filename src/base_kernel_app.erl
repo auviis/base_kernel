@@ -31,6 +31,8 @@
   create_protect_process/3,
   process_apply/3,
   process_apply/4,
+  execute_template/2,
+  execute_template/3,
   get_process/1,
   get_process/2,
   stop_process/2,
@@ -98,6 +100,12 @@ process_apply(sync, Module,Id, MFA) ->
   base_kernel_helper:process_apply(sync, Module,Id, MFA);
 process_apply(async, Module,Id, MFA) ->
   base_kernel_helper:process_apply(async, Module,Id, MFA).
+
+
+execute_template(Module,Template) ->
+  base_kernel_helper:execute_template(Module,Template).
+execute_template(Module,Id,Template) ->
+  base_kernel_helper:execute_template(Module,Id,Template).
 
 get_process(Module) ->
   base_kernel_process:getProcess(Module).
