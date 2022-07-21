@@ -27,6 +27,8 @@
   create_process/3,
   create_unlink_process/2,
   create_unlink_process/3,
+  create_protect_process/2,
+  create_protect_process/3,
   process_apply/3,
   process_apply/4,
   get_process/1,
@@ -72,15 +74,20 @@ run_with_protect(Module,Pool,Args)->
   base_kernel_helper:run_with_protect(Module,Pool,Args).
 
 create_process(Module,Args) ->
-  base_kernel_helper:create_process(Module,[],Args).
+  base_kernel_helper:create_link_process(Module,[],Args).
 
 create_process(Module,Id,Args) ->
-  base_kernel_helper:create_process(Module,Id,Args).
+  base_kernel_helper:create_link_process(Module,Id,Args).
 
 create_unlink_process(Module,Args) ->
   base_kernel_helper:create_unlink_process(Module,[],Args).
 create_unlink_process(Module,Id,Args) ->
   base_kernel_helper:create_unlink_process(Module,Id,Args).
+
+create_protect_process(Module,Args) ->
+  base_kernel_helper:create_protect_process(Module,[],Args).
+create_protect_process(Module,Id,Args) ->
+    base_kernel_helper:create_protect_process(Module,Id,Args).
 
 process_apply(sync, Module, MFA) ->
   base_kernel_helper:process_apply(sync, Module,[], MFA);
