@@ -41,6 +41,11 @@
     sha512/1,
     ifelse/3,
     random/2,
+
+    random_string/1,
+    random_string_of_chars/1,
+    random_string_of_numbers/1,
+
     rm_str_space/1
 ]).
 
@@ -85,6 +90,9 @@ md5(String) -> base_util:md5(String).
 sha512(String) -> base_util:sha512(String).
 ifelse(A, B, C) -> base_util:ifelse(A, B, C).
 random(Min,Max) -> base_util:random(Min,Max).
+random_string(L) -> base_util:rnd_chars_numbers(L).
+random_string_of_chars(L) -> base_util:rnd_chars(L).
+random_string_of_numbers(L) -> base_util:rnd_numbers(L).
 
 getIpFromCowboyRequest(Req) -> base_util:getIpFromCowboyRequest(Req).
 getLocationFromIP(IP) -> base_util:getLocationFromIP(IP).
