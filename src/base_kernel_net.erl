@@ -67,10 +67,10 @@
 
 -export([
 	rest_token_validate/1,
-	rest_createGoogleClientSecretToken/2,
 	rest_createGoogleClientSecretToken/3,
+	rest_createGoogleClientSecretToken/4,
 	rest_createAppleClientSecretToken/3,
-	rest_getGooglePaymentToken/0,
+	rest_getGooglePaymentToken/1,
 	rest_extractGoogleToken/1,
 	rest_extractFacebookToken/1,
 	rest_extractAppleToken/1,
@@ -179,15 +179,15 @@ rest_extractAppleToken(RawToken) ->	base_rest_handle:extractAppleToken(RawToken)
 
 rest_extractFacebookToken(RawToken) ->	base_rest_handle:extractFacebookToken(RawToken).
 
-rest_getGooglePaymentToken() -> base_rest_handle:get_google_payment_access_token().
+rest_getGooglePaymentToken(GameId) -> base_rest_handle:get_google_payment_access_token(GameId).
 
 rest_extractGoogleToken(RawToken) ->	base_rest_handle:extractGoogleToken(RawToken).
 
 rest_createToken(List) ->	base_rest_handle:createToken(List).
 
-rest_createGoogleClientSecretToken(ISS,IAT) ->	base_rest_handle:createGoogleClientSecretToken(ISS,IAT).
+rest_createGoogleClientSecretToken(GameId,ISS,IAT) ->	base_rest_handle:createGoogleClientSecretToken(GameId,ISS,IAT).
 
-rest_createGoogleClientSecretToken(ISS,IAT,EXP) ->	base_rest_handle:createGoogleClientSecretToken(ISS,IAT,EXP).
+rest_createGoogleClientSecretToken(GameId,ISS,IAT,EXP) ->	base_rest_handle:createGoogleClientSecretToken(GameId,ISS,IAT,EXP).
 
 rest_createAppleClientSecretToken(ISS,IAT,EXP) ->	base_rest_handle:createAppleClientSecretToken(ISS,IAT,EXP).
 

@@ -7,6 +7,7 @@
     ]).
 
 -export ([
+    to_atom/1,
     to_list/1,
     to_list_lower/1,
     to_binary/1,
@@ -61,7 +62,7 @@
 get_app()->  base_config:get_app().
 get(Key) ->  base_config:get(Key).
 get_config(Key) ->  base_config:get(Key).
-
+to_atom(L) -> base_misc:to_atom(L).
 to_list(L) -> base_util:to_list(L).
 to_list_lower(L) -> base_util:to_list_lower(L).
 to_binary(L) -> base_util:to_binary(L).
