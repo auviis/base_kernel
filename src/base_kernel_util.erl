@@ -3,7 +3,9 @@
 -export([
     get_app/0,
     get/1,
-    get_config/1
+    get_config/1,
+    parse_config/1,
+    parse_config/2
     ]).
 
 -export ([
@@ -62,6 +64,8 @@
 get_app()->  base_config:get_app().
 get(Key) ->  base_config:get(Key).
 get_config(Key) ->  base_config:get(Key).
+parse_config(Keys) ->  base_config:gets(Keys).
+parse_config(Keys,Map) ->  base_config:gets(Keys,Map).
 to_atom(L) -> base_misc:to_atom(L).
 to_list(L) -> base_util:to_list(L).
 to_list_lower(L) -> base_util:to_list_lower(L).
