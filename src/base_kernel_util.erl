@@ -49,7 +49,9 @@
     random_string_of_chars/1,
     random_string_of_numbers/1,
 
-    rm_str_space/1
+    rm_str_space/1,
+    loadIPv4DataToCache/1,
+    getCountryFromIPv4/1
 ]).
 
 -export([
@@ -108,3 +110,6 @@ safe_create_ets(Name, Args) -> base_util:safe_create_ets(Name, Args).
 create_process_name(Prefix,List) -> base_misc:create_process_name(Prefix,List).
 whereis_name(Name) -> base_misc:whereis_name(Name).
 is_process_alive(Pid) -> base_misc:is_process_alive(Pid).
+
+loadIPv4DataToCache(FileName) -> base_util:loadIPv4DataToCache(FileName).
+getCountryFromIPv4(IP) -> base_util:getCountryFromIPv4(IP).
