@@ -51,7 +51,7 @@
 
     rm_str_space/1,
     loadIPv4DataToCache/1,
-    getCountryFromIPv4/1
+    getCountryFromIP/1
 ]).
 
 -export([
@@ -112,4 +112,4 @@ whereis_name(Name) -> base_misc:whereis_name(Name).
 is_process_alive(Pid) -> base_misc:is_process_alive(Pid).
 
 loadIPv4DataToCache(FileName) -> base_util:loadIPv4DataToCache(FileName).
-getCountryFromIPv4(IP) -> base_util:getCountryFromIPv4(IP).
+getCountryFromIP(IP) -> base_util:getCountryFromIP(IP).
