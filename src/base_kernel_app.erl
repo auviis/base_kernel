@@ -51,6 +51,8 @@
   setCacheGlobal/4,
   removeCacheGlobal/2
 ]).
+-export([enable_ip_local_lookup/0]).
+
 start(StartType, App) ->
   base_kernel_helper:start(StartType,App).
 
@@ -186,3 +188,9 @@ setCacheGlobal(CacheService,Key,Val,Expire) ->
 
 removeCacheGlobal(CacheService,Key) ->
   base_kernel_helper:removeCacheGlobal(CacheService,Key).
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %% %% %% %% nif %% %% %% %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+enable_ip_local_lookup() ->
+  svr_base_service:enable_ip_local_lookup().
