@@ -70,6 +70,7 @@
 	rest_createGoogleClientSecretToken/3,
 	rest_createGoogleClientSecretToken/4,
 	rest_createAppleClientSecretToken/3,
+	rest_createAppleClientSecretToken/4,
 	rest_getGooglePaymentToken/1,
 	rest_extractGoogleToken/1,
 	rest_extractFacebookToken/1,
@@ -190,6 +191,8 @@ rest_createGoogleClientSecretToken(GameId,ISS,IAT) ->	base_rest_handle:createGoo
 rest_createGoogleClientSecretToken(GameId,ISS,IAT,EXP) ->	base_rest_handle:createGoogleClientSecretToken(GameId,ISS,IAT,EXP).
 
 rest_createAppleClientSecretToken(ISS,IAT,EXP) ->	base_rest_handle:createAppleClientSecretToken(ISS,IAT,EXP).
+
+rest_createAppleClientSecretToken(ISS,IAT,EXP,ClientId) ->	base_rest_handle:createAppleClientSecretToken(ISS,IAT,EXP,ClientId).
 
 rest_getUserId(Req) ->	base_rest_handle:getUserId(Req).
 
