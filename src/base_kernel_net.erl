@@ -87,8 +87,14 @@
 ]).
 
 -export([
+	get_url_content_with_auth_key/2,
+	get_url_content_with_header/2,
 	get_url_content/1,
+	post_url_content_with_auth_key/3,
+	post_url_content_with_header/3,
 	post_url_content/2,
+	post_raw_url_content_with_auth_key/3,
+	post_raw_url_content_with_header/3,
 	post_raw_url_content/2
 ]).
 
@@ -207,17 +213,29 @@ rest_getEmail(Req) ->	base_rest_handle:getEmail(Req).
 
 rest_getEmail() ->	base_rest_handle:getEmail().
 
+get_url_content_with_auth_key(Url,AuthJwt) -> base_rest_handle:get_url_content_with_auth_key(Url,AuthJwt).
+
+get_url_content_with_header(Url,Header) -> base_rest_handle:get_url_content_with_header(Url,Header).
+
 get_url_content(Url) -> get_url_content(Url,5).
 
-get_url_content(Url,Repeat) -> base_rest_handle:get_url_content(Url,Repeat).
+get_url_content(Url,Repeat) -> base_rest_handle:get_url_content(Url,[],Repeat).
+
+post_url_content_with_auth_key(Url,AuthJwt,FormData) -> base_rest_handle:post_url_content_with_auth_key(Url,AuthJwt,FormData).
+
+post_url_content_with_header(Url,Header,FormData) -> base_rest_handle:post_url_content_with_header(Url,Header,FormData).
 
 post_url_content(Url,FormData) -> post_url_content(Url, FormData,5).
 
-post_url_content(Url, FormData, Repeat) ->	base_rest_handle:post_url_content(Url, FormData,Repeat).
+post_url_content(Url, FormData, Repeat) ->	base_rest_handle:post_url_content(Url, [],FormData,Repeat).
+
+post_raw_url_content_with_auth_key(Url,AuthJwt,FormData) -> base_rest_handle:post_raw_url_content_with_auth_key(Url,AuthJwt,FormData).
+
+post_raw_url_content_with_header(Url,Header,FormData) -> base_rest_handle:post_raw_url_content_with_header(Url,Header,FormData).
 
 post_raw_url_content(Url,BodyContent) -> post_raw_url_content(Url, BodyContent, 5).
 
-post_raw_url_content(Url, BodyContent, Repeat) ->	base_rest_handle:post_raw_url_content(Url, BodyContent,Repeat).
+post_raw_url_content(Url, BodyContent, Repeat) ->	base_rest_handle:post_raw_url_content(Url, [],BodyContent,Repeat).
 
-send_mail(Receiver, Subject, Content) ->	base_rest_handle:post_raw_url_content(Receiver, Subject, Content).
+send_mail(Receiver, Subject, Content) ->	base_rest_handle:send_mail(Receiver, Subject, Content).
 
