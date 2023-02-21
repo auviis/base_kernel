@@ -1,7 +1,7 @@
 -module(base_kernel_tcp).
 -export([
-    start_tcp_service/1,
-    start_tcp_service/2
+    start_tcp_service/2,
+    start_tcp_service/3
 ]).
 -export(
     [
@@ -39,8 +39,8 @@ read(L,M,N) -> base_tcp_encoder:read(L,M,N).
 read_fields(L,M) -> base_tcp_encoder:read_fields(L,M).
 pack(L,M) -> base_tcp_encoder:pack(L,M).
 
-start_tcp_service(Module) ->
-    base_kernel_helper:start_tcp_service(Module).
+start_tcp_service(Module,TCPKey) ->
+    base_kernel_helper:start_tcp_service(Module,TCPKey).
 
-start_tcp_service(Module,Port) ->
-    base_kernel_helper:start_tcp_service(Module, Port).
+start_tcp_service(Module,TCPKey,Port) ->
+    base_kernel_helper:start_tcp_service(Module,TCPKey,Port).
