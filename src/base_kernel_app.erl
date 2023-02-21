@@ -80,13 +80,14 @@ run_with_protect(Module,Pool,Args)->
   base_kernel_helper:run_with_protect(Module,Pool,Args).
 
 create_process(Module,Args) ->
-  base_kernel_helper:create_link_process(Module,[],Args).
+  base_kernel_helper:create_link_process(Module,Args).
 
 create_process(Module,Id,Args) ->
   base_kernel_helper:create_link_process(Module,Id,Args).
 
 create_unlink_process(Module,Args) ->
-  base_kernel_helper:create_unlink_process(Module,[],Args).
+  base_kernel_helper:create_unlink_process(Module,Args).
+
 create_unlink_process(Module,Id,Args) ->
   base_kernel_helper:create_unlink_process(Module,Id,Args).
 
