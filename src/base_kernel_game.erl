@@ -11,6 +11,7 @@
 %% API
 -export([
   initRoom/1,
+  removeRoom/1,
   roomReady/1,
   joinRoom/2,
   leaveRoom/2,
@@ -22,12 +23,13 @@
 -export([
   join_room/2,
   leave_room/2,
+  remove_room/1,
   players_count/1,
   players_in_room/1
 ]).
 
 initRoom(RoomId) -> base_lib_room:initRoom(RoomId).
-
+removeRoom(RoomId) -> base_lib_room:removeRoom(RoomId).
 roomReady(RoomId) -> base_lib_room:roomReady(RoomId).
 joinRoom(RoomId,PlayerId)-> base_lib_room:joinRoom(RoomId,PlayerId).
 leaveRoom(RoomId,PlayerId)-> base_lib_room:leaveRoom(RoomId,PlayerId).
@@ -38,6 +40,7 @@ getPlayers(RoomId)-> base_lib_room:getPlayers(RoomId).
 %% Apply Functions
 %% ------------------------------------------------------------------
 join_room(State,RoleId) -> base_lib_room:join_room(State,RoleId).
+remove_room(State) -> base_lib_room:remove_room(State).
 leave_room(State,RoleId) -> base_lib_room:leave_room(State,RoleId).
 players_in_room(State) -> base_lib_room:players_in_room(State).
 players_count(State) -> base_lib_room:players_count(State).
