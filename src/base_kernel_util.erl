@@ -12,6 +12,7 @@
     to_atom/1,
     to_list/1,
     to_list_lower/1,
+    to_list_upper/1,
     to_binary/1,
     to_number/1,
     hex_str_to_number/1,
@@ -71,6 +72,7 @@ parse_config(Keys,Map) ->  base_config:gets(Keys,Map).
 to_atom(L) -> base_misc:to_atom(L).
 to_list(L) -> base_util:to_list(L).
 to_list_lower(L) -> base_util:to_list_lower(L).
+to_list_upper(L) -> base_util:to_list_upper(L).
 to_binary(L) -> base_util:to_binary(L).
 to_number(L) -> base_util:to_number(L).
 hex_str_to_number(String) -> base_util:hex_str_to_number(String).
