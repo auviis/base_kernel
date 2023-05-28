@@ -37,6 +37,7 @@
 
 -export([
     getIpFromCowboyRequest/1,
+    getCountryDetailFromIP/1,
     getLocationFromIP/1
 ]).
 
@@ -51,7 +52,7 @@
     random_string_of_numbers/1,
 
     rm_str_space/1,
-    loadIPv4DataToCache/1,
+%%    loadIPv4DataToCache/1,
     getCountryFromIP/1
 ]).
 
@@ -113,5 +114,6 @@ create_process_name(Prefix,List) -> base_misc:create_process_name(Prefix,List).
 whereis_name(Name) -> base_misc:whereis_name(Name).
 is_process_alive(Pid) -> base_misc:is_process_alive(Pid).
 
-loadIPv4DataToCache(FileName) -> base_util:loadIPv4DataToCache(FileName).
+%%loadIPv4DataToCache(FileName) -> base_util:loadIPv4DataToCache(FileName).
+getCountryDetailFromIP(IP) -> base_util:getCountryDetailFromIP(IP).
 getCountryFromIP(IP) -> base_util:getCountryFromIP(IP).
