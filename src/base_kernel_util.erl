@@ -11,6 +11,7 @@
 -export ([
     to_atom/1,
     to_list/1,
+    is_unicode_string/1,
     to_list_lower/1,
     to_list_upper/1,
     to_binary/1,
@@ -83,6 +84,7 @@ reformat_number_default(Var) -> base_util:reformat_number_default(Var).
 to_timestamp(L) -> base_util:to_timestamp(L).
 to_wei(M) -> base_util:to_wei(M).
 from_wei(W) -> base_util:from_wei(W).
+is_unicode_string(S) -> base_kernel_util:is_unicode_string(S).
 unixtime() -> base_util:unixtime().
 longunixtime() -> base_util:longunixtime().
 mongotimestamp() -> base_util:mongotimestamp().
