@@ -60,6 +60,7 @@
 	rest_get_handle/2,
 	rest_post_handle/2,
 	rest_response/3,
+	rest_response/4,
 	rest_get_response/3,
 	rest_post_response/3,
 	rest_file_response/3
@@ -170,6 +171,8 @@ rest_get_handle(Req, State) ->	base_rest_handle:get_handle(Req, State) .
 rest_post_handle (Req, State) ->	base_rest_handle:post_handle(Req, State) .
 
 rest_file_response(Req,File,State) ->	base_rest_handle:file_response(Req,File,State).
+
+rest_response(Req,Body,State,IsJson) ->	base_rest_handle:response(Req,Body,State,IsJson).
 
 rest_response(Req,Body,State) ->	base_rest_handle:response(Req,Body,State).
 
