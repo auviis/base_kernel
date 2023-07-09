@@ -180,10 +180,9 @@ rest_get_response(Req,Body,State) ->	base_rest_handle:get_response(Req,Body,Stat
 
 rest_post_response(Req,Body,State) ->	base_rest_handle:post_response(Req,Body,State).
 
+rest_parser_header(Req) ->	base_rest_handle:parser_header(Req,false).
 
-rest_parser_header(Req) ->	base_rest_handle:parser_header(Req).
-
-rest_token_validate(Token) ->	base_rest_handle:token_validate(Token) .
+rest_token_validate(Token) ->	base_rest_handle:token_validate(Token,false) .
 
 rest_extractAppleToken(RawToken) ->	base_rest_handle:extractAppleToken(RawToken).
 

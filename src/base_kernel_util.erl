@@ -53,6 +53,9 @@
     random_string_of_numbers/1,
 
     rm_str_space/1,
+    trim/1,
+    trim_left/1,
+    trim_right/1,
 %%    loadIPv4DataToCache/1,
     getCountryFromIP/1
 ]).
@@ -66,6 +69,8 @@
     whereis_name/1,
     is_process_alive/1
 ]).
+-export([get_stacktrace/0]).
+
 get_app()->  base_config:get_app().
 get(Key) ->  base_config:get(Key).
 get_config(Key) ->  base_config:get(Key).
@@ -109,6 +114,9 @@ random_string_of_numbers(L) -> base_util:rnd_numbers(L).
 getIpFromCowboyRequest(Req) -> base_util:getIpFromCowboyRequest(Req).
 getLocationFromIP(IP) -> base_util:getLocationFromIP(IP).
 rm_str_space(String) -> base_util:rm_str_space(String).
+trim(String) -> base_util:trim(String).
+trim_left(String) -> base_util:trim_left(String).
+trim_right(String) -> base_util:trim_right(String).
 
 safe_create_ets(Name, Args) -> base_util:safe_create_ets(Name, Args).
 
@@ -116,6 +124,7 @@ create_process_name(Prefix,List) -> base_misc:create_process_name(Prefix,List).
 whereis_name(Name) -> base_misc:whereis_name(Name).
 is_process_alive(Pid) -> base_misc:is_process_alive(Pid).
 
+get_stacktrace() -> base_misc:get_stacktrace().
 %%loadIPv4DataToCache(FileName) -> base_util:loadIPv4DataToCache(FileName).
 getCountryDetailFromIP(IP) -> base_util:getCountryDetailFromIP(IP).
 getCountryFromIP(IP) -> base_util:getCountryFromIP(IP).

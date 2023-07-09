@@ -11,12 +11,21 @@
 %% API
 -export([
   initRoom/1,
+  initRoom/2,
   removeRoom/1,
   roomReady/1,
   joinRoom/2,
   leaveRoom/2,
+  setMaxPlayers/2,
+  getMaxPlayers/1,
+  checkRoomAvailable/1,
   getPlayers/1,
   getPlayersCount/1
+]).
+
+-export([
+  getRoomList/0,
+  getAvailableRoomList/0
 ]).
 
 %% Apply Functions
@@ -29,13 +38,19 @@
 ]).
 
 initRoom(RoomId) -> base_lib_room:initRoom(RoomId).
+initRoom(RoomId,MaxPlayers) -> base_lib_room:initRoom(RoomId,MaxPlayers).
 removeRoom(RoomId) -> base_lib_room:removeRoom(RoomId).
 roomReady(RoomId) -> base_lib_room:roomReady(RoomId).
 joinRoom(RoomId,PlayerId)-> base_lib_room:joinRoom(RoomId,PlayerId).
 leaveRoom(RoomId,PlayerId)-> base_lib_room:leaveRoom(RoomId,PlayerId).
+setMaxPlayers(RoomId,Max)-> base_lib_room:setMaxPlayers(RoomId,Max).
 getPlayersCount(RoomId)-> base_lib_room:getPlayersCount(RoomId).
+getMaxPlayers(RoomId)-> base_lib_room:getMaxPlayers(RoomId).
+checkRoomAvailable(RoomId)-> base_lib_room:checkRoomAvailable(RoomId).
 getPlayers(RoomId)-> base_lib_room:getPlayers(RoomId).
-
+%% ------------------------------------------------------------------
+getRoomList()-> base_lib_room:getRoomList().
+getAvailableRoomList()-> base_lib_room:getAvailableRoomList().
 %% ------------------------------------------------------------------
 %% Apply Functions
 %% ------------------------------------------------------------------

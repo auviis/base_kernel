@@ -35,6 +35,7 @@
   execute_template/3,
   execute_template_sync/2,
   execute_template_sync/3,
+  execute_template_sync/4,
   get_process/1,
   get_process/2,
   stop_process/2,
@@ -116,7 +117,8 @@ execute_template_sync(Module,Template) ->
   base_kernel_helper:execute_template_sync(Module,Template).
 execute_template_sync(Module,Id,Template) ->
   base_kernel_helper:execute_template_sync(Module,Id,Template).
-
+execute_template_sync(Module,Id,Template,State) ->
+  base_kernel_helper:execute_template_sync(Module,Id,Template,State).
 get_process(Module) ->
   base_kernel_process:getProcess(Module).
 
