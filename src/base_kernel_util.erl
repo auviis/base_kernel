@@ -61,7 +61,9 @@
 ]).
 
 -export([
-    safe_create_ets/2
+    safe_create_ets/2,
+    get_ets_val/2,
+    get_ets_val_one/2
 ]).
 
 -export([
@@ -119,6 +121,8 @@ trim_left(String) -> base_util:trim_left(String).
 trim_right(String) -> base_util:trim_right(String).
 
 safe_create_ets(Name, Args) -> base_util:safe_create_ets(Name, Args).
+get_ets_val(Name,Key) -> base_util:find_ets_value(Name,Key).
+get_ets_val_one(Name,Key) -> base_util:find_ets_value_one(Name,Key).
 
 create_process_name(Prefix,List) -> base_misc:create_process_name(Prefix,List).
 whereis_name(Name) -> base_misc:whereis_name(Name).

@@ -20,7 +20,11 @@
   getMaxPlayers/1,
   checkRoomAvailable/1,
   getPlayers/1,
-  getPlayersCount/1
+  getPlayersCount/1,
+  setRoomData/2,
+  getRoomData/1,
+  roomExecuteSync/2,
+  roomExecute/2
 ]).
 
 -export([
@@ -32,9 +36,9 @@
 -export([
   join_room/2,
   leave_room/2,
-  remove_room/1,
-  players_count/1,
-  players_in_room/1
+  remove_room/1
+%%  players_count/0,
+%%  players_in_room/0
 ]).
 
 initRoom(RoomId) -> base_lib_room:initRoom(RoomId).
@@ -48,16 +52,21 @@ getPlayersCount(RoomId)-> base_lib_room:getPlayersCount(RoomId).
 getMaxPlayers(RoomId)-> base_lib_room:getMaxPlayers(RoomId).
 checkRoomAvailable(RoomId)-> base_lib_room:checkRoomAvailable(RoomId).
 getPlayers(RoomId)-> base_lib_room:getPlayers(RoomId).
+setRoomData(RoomId,Data)-> base_lib_room:setRoomData(RoomId,Data).
+getRoomData(RoomId)-> base_lib_room:getRoomData(RoomId).
 %% ------------------------------------------------------------------
 getRoomList()-> base_lib_room:getRoomList().
 getAvailableRoomList()-> base_lib_room:getAvailableRoomList().
+%% ------------------------------------------------------------------
+roomExecuteSync(RoomId,MFA) -> base_lib_room:roomExecuteSync(RoomId,MFA).
+roomExecute(RoomId,MFA) -> base_lib_room:roomExecute(RoomId,MFA).
 %% ------------------------------------------------------------------
 %% Apply Functions
 %% ------------------------------------------------------------------
 join_room(State,RoleId) -> base_lib_room:join_room(State,RoleId).
 remove_room(State) -> base_lib_room:remove_room(State).
 leave_room(State,RoleId) -> base_lib_room:leave_room(State,RoleId).
-players_in_room(State) -> base_lib_room:players_in_room(State).
-players_count(State) -> base_lib_room:players_count(State).
+%%players_in_room() -> base_lib_room:players_in_room().
+%%players_count() -> base_lib_room:players_count().
 
 
