@@ -76,6 +76,7 @@
 	rest_extractGoogleToken/1,
 	rest_extractFacebookToken/1,
 	rest_extractAppleToken/1,
+	rest_apple_revoke/3,
 	rest_createToken/1,
 	rest_getEmail/1,
 	rest_getEmail/0,
@@ -183,6 +184,8 @@ rest_post_response(Req,Body,State) ->	base_rest_handle:post_response(Req,Body,St
 rest_parser_header(Req) ->	base_rest_handle:parser_header(Req,false).
 
 rest_token_validate(Token) ->	base_rest_handle:token_validate(Token,false) .
+
+rest_apple_revoke(ClientId, ClientSecret,RefreshToken) -> base_rest_handle:apple_revoke(ClientId, ClientSecret,RefreshToken).
 
 rest_extractAppleToken(RawToken) ->	base_rest_handle:extractAppleToken(RawToken).
 
