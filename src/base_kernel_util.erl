@@ -73,7 +73,10 @@
 ]).
 -export([get_stacktrace/0]).
 
--export([hot_reload/0]).
+-export([
+    hot_reload/0,
+    hot_reload/1
+]).
 
 get_app()->  base_config:get_app().
 get(Key) ->  base_config:get(Key).
@@ -136,3 +139,4 @@ getCountryDetailFromIP(IP) -> base_util:getCountryDetailFromIP(IP).
 getCountryFromIP(IP) -> base_util:getCountryFromIP(IP).
 
 hot_reload() -> base_kernel_helper:hot_reload().
+hot_reload(Modules) -> base_kernel_helper:hot_reload(Modules).
