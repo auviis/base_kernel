@@ -73,6 +73,8 @@
 ]).
 -export([get_stacktrace/0]).
 
+-export([hot_reload/0]).
+
 get_app()->  base_config:get_app().
 get(Key) ->  base_config:get(Key).
 get_config(Key) ->  base_config:get(Key).
@@ -132,3 +134,5 @@ get_stacktrace() -> base_misc:get_stacktrace().
 %%loadIPv4DataToCache(FileName) -> base_util:loadIPv4DataToCache(FileName).
 getCountryDetailFromIP(IP) -> base_util:getCountryDetailFromIP(IP).
 getCountryFromIP(IP) -> base_util:getCountryFromIP(IP).
+
+hot_reload() -> base_kernel_helper:hot_reload().

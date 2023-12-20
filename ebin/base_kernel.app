@@ -16,8 +16,8 @@
                         base_tcp_accept,base_tcp_encoder,base_util,
                         ip_to_country_nif,lib_base_app,self_test,
                         svr_base_cache,svr_base_crash_handle,svr_base_db,
-                        svr_base_db_v2,svr_base_game_room_mgr,svr_base_room,
-                        svr_base_service,svr_base_tcp,svr_rpc_monitor,
-                        web3_helper]},
+                        svr_base_game_room_mgr,svr_base_hot_reload,
+                        svr_base_room,svr_base_service,svr_base_tcp,
+                        svr_rpc_monitor,web3_helper]},
               {licenses,["Apache 2.0"]},
               {links,[]}]}.
