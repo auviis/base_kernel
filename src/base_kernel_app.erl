@@ -52,6 +52,16 @@
   setCacheGlobal/4,
   removeCacheGlobal/2
 ]).
+-export([
+  getDiskCache/1,
+  setDiskCache/2,
+  setDiskCache/3,
+  removeDiskCache/1,
+  getDiskCacheGlobal/2,
+  setDiskCacheGlobal/3,
+  setDiskCacheGlobal/4,
+  removeDiskCacheGlobal/2
+]).
 -export([enable_ip_local_lookup/1]).
 -export([
   stop_server/0
@@ -180,6 +190,19 @@ setCache(Key,Val,Expire) ->
 
 removeCache(Key) ->
   base_kernel_helper:removeCache(Key).
+
+getDiskCache(Key) ->
+  base_kernel_helper:getDiskCache(Key).
+
+setDiskCache(Key,Val) ->
+  base_kernel_helper:setDiskCache(Key,Val).
+
+setDiskCache(Key,Val,Expire) ->
+  base_kernel_helper:setDiskCache(Key,Val,Expire).
+
+removeDiskCache(Key) ->
+  base_kernel_helper:removeDiskCache(Key).
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % %% %% %% %% cache global %% %% %% %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -194,6 +217,18 @@ setCacheGlobal(CacheService,Key,Val,Expire) ->
 
 removeCacheGlobal(CacheService,Key) ->
   base_kernel_helper:removeCacheGlobal(CacheService,Key).
+
+getDiskCacheGlobal(CacheService,Key) ->
+  base_kernel_helper:getDiskCacheGlobal(CacheService,Key).
+
+setDiskCacheGlobal(CacheService,Key,Val) ->
+  base_kernel_helper:setDiskCacheGlobal(CacheService,Key,Val).
+
+setDiskCacheGlobal(CacheService,Key,Val,Expire) ->
+  base_kernel_helper:setCacheGlobal(CacheService,Key,Val,Expire).
+
+removeDiskCacheGlobal(CacheService,Key) ->
+  base_kernel_helper:removeDiskCacheGlobal(CacheService,Key).
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % %% %% %% %% nif %% %% %% %%
