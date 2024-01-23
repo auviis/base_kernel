@@ -100,6 +100,20 @@
 	post_raw_url_content/2
 ]).
 
+-export([
+	put_url_content_with_auth_key/3,
+	put_url_content_with_header/3,
+	put_url_content/2,
+	put_raw_url_content_with_auth_key/3,
+	put_raw_url_content_with_header/3,
+	put_raw_url_content/2
+]).
+
+-export([
+	delete_url_content_with_auth_key/2,
+	delete_url_content_with_header/2,
+	delete_url_content/1
+]).
 %% ---------------------------------------------------------
 %% ------------------------WEB SOCKET ----------------------
 %% ---------------------------------------------------------
@@ -226,6 +240,14 @@ get_url_content(Url) -> get_url_content(Url,5).
 
 get_url_content(Url,Repeat) -> base_rest_handle:get_url_content(Url,[],Repeat).
 
+delete_url_content_with_auth_key(Url,AuthJwt) -> base_rest_handle:delete_url_content_with_auth_key(Url,AuthJwt).
+
+delete_url_content_with_header(Url,Header) -> base_rest_handle:delete_url_content_with_header(Url,Header).
+
+delete_url_content(Url) -> delete_url_content(Url,5).
+
+delete_url_content(Url,Repeat) -> base_rest_handle:delete_url_content(Url,[],Repeat).
+
 post_url_content_with_auth_key(Url,AuthJwt,FormData) -> base_rest_handle:post_url_content_with_auth_key(Url,AuthJwt,FormData).
 
 post_url_content_with_header(Url,Header,FormData) -> base_rest_handle:post_url_content_with_header(Url,Header,FormData).
@@ -241,6 +263,24 @@ post_raw_url_content_with_header(Url,Header,FormData) -> base_rest_handle:post_r
 post_raw_url_content(Url,BodyContent) -> post_raw_url_content(Url, BodyContent, 5).
 
 post_raw_url_content(Url, BodyContent, Repeat) ->	base_rest_handle:post_raw_url_content(Url, [],BodyContent,Repeat).
+
+
+put_url_content_with_auth_key(Url,AuthJwt,FormData) -> base_rest_handle:put_url_content_with_auth_key(Url,AuthJwt,FormData).
+
+put_url_content_with_header(Url,Header,FormData) -> base_rest_handle:put_url_content_with_header(Url,Header,FormData).
+
+put_url_content(Url,FormData) -> put_url_content(Url, FormData,5).
+
+put_url_content(Url, FormData, Repeat) ->	base_rest_handle:put_url_content(Url, [],FormData,Repeat).
+
+put_raw_url_content_with_auth_key(Url,AuthJwt,FormData) -> base_rest_handle:put_raw_url_content_with_auth_key(Url,AuthJwt,FormData).
+
+put_raw_url_content_with_header(Url,Header,FormData) -> base_rest_handle:put_raw_url_content_with_header(Url,Header,FormData).
+
+put_raw_url_content(Url,BodyContent) -> put_raw_url_content(Url, BodyContent, 5).
+
+put_raw_url_content(Url, BodyContent, Repeat) ->	base_rest_handle:put_raw_url_content(Url, [],BodyContent,Repeat).
+
 
 send_mail(Receiver, Subject, Content) ->	base_rest_handle:send_mail(Receiver, Subject, Content).
 
