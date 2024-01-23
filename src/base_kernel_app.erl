@@ -47,6 +47,7 @@
   setCache/2,
   setCache/3,
   removeCache/1,
+  removeCacheAll/0,
   getCacheGlobal/2,
   setCacheGlobal/3,
   setCacheGlobal/4,
@@ -57,6 +58,7 @@
   setDiskCache/2,
   setDiskCache/3,
   removeDiskCache/1,
+  removeDiskCacheAll/0,
   getDiskCacheGlobal/2,
   setDiskCacheGlobal/3,
   setDiskCacheGlobal/4,
@@ -191,6 +193,9 @@ setCache(Key,Val,Expire) ->
 removeCache(Key) ->
   base_kernel_helper:removeCache(Key).
 
+removeCacheAll() ->
+  base_kernel_helper:removeCacheAll().
+
 getDiskCache(Key) ->
   base_kernel_helper:getDiskCache(Key).
 
@@ -202,6 +207,9 @@ setDiskCache(Key,Val,Expire) ->
 
 removeDiskCache(Key) ->
   base_kernel_helper:removeDiskCache(Key).
+
+removeDiskCacheAll() ->
+  base_kernel_helper:removeDiskCacheAll().
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % %% %% %% %% cache global %% %% %% %%

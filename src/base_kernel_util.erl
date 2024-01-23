@@ -72,7 +72,7 @@
     is_process_alive/1
 ]).
 -export([get_stacktrace/0]).
-
+-export([parse_field/2]).
 -export([
     hot_reload/0,
     hot_reload/1
@@ -83,6 +83,7 @@ get(Key) ->  base_config:get(Key).
 get_config(Key) ->  base_config:get(Key).
 parse_config(Keys) ->  base_config:gets(Keys).
 parse_config(Keys,Map) ->  base_config:gets(Keys,Map).
+parse_field(Keys,Map) ->  base_util:parse_field(Keys,Map).
 to_atom(L) -> base_misc:to_atom(L).
 to_list(L) -> base_util:to_list(L).
 to_list_lower(L) -> base_util:to_list_lower(L).
