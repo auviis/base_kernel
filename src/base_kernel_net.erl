@@ -88,6 +88,7 @@
 	send_mail/3
 ]).
 
+-export([get_http_public_dir/0]).
 -export([
 	get_url_content_with_auth_key/2,
 	get_url_content_with_header/2,
@@ -281,6 +282,7 @@ put_raw_url_content(Url,BodyContent) -> put_raw_url_content(Url, BodyContent, 5)
 
 put_raw_url_content(Url, BodyContent, Repeat) ->	base_rest_handle:put_raw_url_content(Url, [],BodyContent,Repeat).
 
+get_http_public_dir() -> base_rest_handle:get_http_public_dir().
 
 send_mail(Receiver, Subject, Content) ->	base_rest_handle:send_mail(Receiver, Subject, Content).
 

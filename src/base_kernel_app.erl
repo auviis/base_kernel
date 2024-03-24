@@ -5,6 +5,7 @@
 
 -module(base_kernel_app).
 -behaviour(application).
+-include("base_common.hrl").
 -export([start/2, stop/1]).
 -export([start_net_service/1]).
 -export([
@@ -64,12 +65,22 @@
   setDiskCacheGlobal/4,
   removeDiskCacheGlobal/2
 ]).
+-export([
+  initCachePool/2,
+  updateCacheToPool/2,
+  getCacheOfPool/2,
+  removeCacheFromPool/2,
+  clearCachePool/1,
+  deleteCachePool/1,
+  getAllCacheOfPool/1
+]).
 -export([enable_ip_local_lookup/1]).
 -export([
   stop_server/0
 ]).
 
 start(StartType, App) ->
+  ?INF_VERBOSE("starting base_kernel ~n"),
   base_kernel_helper:start(StartType,App).
 
 stop(State) ->
@@ -238,6 +249,21 @@ setDiskCacheGlobal(CacheService,Key,Val,Expire) ->
 removeDiskCacheGlobal(CacheService,Key) ->
   base_kernel_helper:removeDiskCacheGlobal(CacheService,Key).
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+initCachePool(EtsName, RecordKey) ->
+  base_kernel_helper:initCachePool(EtsName, RecordKey).
+updateCacheToPool(EtsName, RecordData) ->
+  base_kernel_helper:insertCacheToPool(EtsName, RecordData).
+getCacheOfPool(EtsName,Key) ->
+  base_kernel_helper:getCacheOfPool(EtsName, Key).
+getAllCacheOfPool(EtsName) ->
+  base_kernel_helper:getAllCacheOfPool(EtsName).
+removeCacheFromPool(EtsName,Key) ->
+  base_kernel_helper:removeCacheFromPool(EtsName, Key).
+clearCachePool(EtsName) ->
+  base_kernel_helper:clearCachePool(EtsName).
+deleteCachePool(EtsName) ->
+  base_kernel_helper:deleteCachePool(EtsName).
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % %% %% %% %% nif %% %% %% %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
