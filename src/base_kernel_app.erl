@@ -5,7 +5,6 @@
 
 -module(base_kernel_app).
 -behaviour(application).
--include("base_common.hrl").
 -export([start/2, stop/1]).
 -export([start_net_service/1]).
 -export([
@@ -80,7 +79,7 @@
 ]).
 
 start(StartType, App) ->
-  ?INF_VERBOSE("starting base_kernel ~n"),
+  % ?INF_VERBOSE("starting base_kernel ~n"),
   base_kernel_helper:start(StartType,App).
 
 stop(State) ->
