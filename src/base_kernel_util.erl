@@ -67,6 +67,12 @@
 ]).
 
 -export([
+    safe_create_dets/3,
+    get_dets_val/2,
+    get_dets_val_one/2
+]).
+
+-export([
     create_process_name/2,
     whereis_name/1,
     is_process_alive/1
@@ -127,9 +133,15 @@ trim(String) -> base_util:trim(String).
 trim_left(String) -> base_util:trim_left(String).
 trim_right(String) -> base_util:trim_right(String).
 
+%%Args = [{keypos, KeyPos}, named_table, public, set]
 safe_create_ets(Name, Args) -> base_util:safe_create_ets(Name, Args).
 get_ets_val(Name,Key) -> base_util:find_ets_value(Name,Key).
 get_ets_val_one(Name,Key) -> base_util:find_ets_value_one(Name,Key).
+
+%%Args = [{keypos, KeyPos}, {type, Type}]
+safe_create_dets(Name, File, Args) -> base_util:safe_create_dets(Name, File, Args).
+get_dets_val(Name,Key) -> base_util:find_dets_value(Name,Key).
+get_dets_val_one(Name,Key) -> base_util:find_dets_value_one(Name,Key).
 
 create_process_name(Prefix,List) -> base_misc:create_process_name(Prefix,List).
 whereis_name(Name) -> base_misc:whereis_name(Name).

@@ -79,7 +79,7 @@
 ]).
 
 start(StartType, App) ->
-  % ?INF_VERBOSE("starting base_kernel ~n"),
+%%  ?INF_VERBOSE("starting base_kernel ~n"),
   base_kernel_helper:start(StartType,App).
 
 stop(State) ->
