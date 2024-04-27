@@ -63,13 +63,16 @@
 -export([
     safe_create_ets/2,
     get_ets_val/2,
-    get_ets_val_one/2
+    get_ets_val_one/2,
+    get_ets_size/1
 ]).
 
 -export([
+    compact_dets/3,
     safe_create_dets/3,
     get_dets_val/2,
-    get_dets_val_one/2
+    get_dets_val_one/2,
+    get_dets_size/1
 ]).
 
 -export([
@@ -137,11 +140,14 @@ trim_right(String) -> base_util:trim_right(String).
 safe_create_ets(Name, Args) -> base_util:safe_create_ets(Name, Args).
 get_ets_val(Name,Key) -> base_util:find_ets_value(Name,Key).
 get_ets_val_one(Name,Key) -> base_util:find_ets_value_one(Name,Key).
+get_ets_size(Name) -> base_util:get_ets_size_in_MB(Name).
 
 %%Args = [{keypos, KeyPos}, {type, Type}]
+compact_dets(Name, File, Args) -> base_util:compact_dets(Name, File, Args).
 safe_create_dets(Name, File, Args) -> base_util:safe_create_dets(Name, File, Args).
 get_dets_val(Name,Key) -> base_util:find_dets_value(Name,Key).
 get_dets_val_one(Name,Key) -> base_util:find_dets_value_one(Name,Key).
+get_dets_size(Name) -> base_util:get_dets_size_in_MB(Name).
 
 create_process_name(Prefix,List) -> base_misc:create_process_name(Prefix,List).
 whereis_name(Name) -> base_misc:whereis_name(Name).
