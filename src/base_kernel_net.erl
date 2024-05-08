@@ -88,6 +88,10 @@
 	send_mail/3
 ]).
 
+-export([
+	jwt_encode_hs256/2,
+	jwt_decode_hs256/2
+]).
 -export([get_http_public_dir/0]).
 -export([
 	get_url_content_with_auth_key/2,
@@ -286,3 +290,6 @@ get_http_public_dir() -> base_rest_handle:get_http_public_dir().
 
 send_mail(Receiver, Subject, Content) ->	base_rest_handle:send_mail(Receiver, Subject, Content).
 
+jwt_encode_hs256(Data,Key) -> base_rest_handle:jwt_encode_hs256(Data,Key).
+
+jwt_decode_hs256(Data,Key) -> base_rest_handle:jwt_decode_hs256(Data,Key).
