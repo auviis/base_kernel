@@ -6,7 +6,14 @@
 -module(base_kernel_app).
 -behaviour(application).
 -export([start/2, stop/1]).
--export([start_net_service/1]).
+
+-export([
+  start_net_service/1,
+  pause_net_service/0,
+  resume_net_service/0,
+  stop_network_service/0
+]).
+
 -export([
   init_db_connection/0,
   init_db_connection/1,
@@ -91,6 +98,16 @@ preparing_stop() ->
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%      http service   %%%%%%%%%%%%%%%%%%%%%%%%%
 start_net_service(Routing) ->
   base_kernel_helper:start_net_service(Routing).
+
+pause_net_service() ->
+  base_kernel_helper:pause_net_service().
+
+resume_net_service() ->
+  base_kernel_helper:resume_net_service().
+
+stop_network_service() ->
+  base_kernel_helper:stop_net_service().
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%     supervise pool       %%%%%%%%%%%%%%%%%%%%
 enable_protect(Module,Pool)->
