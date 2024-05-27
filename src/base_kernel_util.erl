@@ -29,6 +29,7 @@
     datetime_to_seconds/1,
     unixtime_to_mongotime/1,
     unixtime_to_localtime/1,
+    unixtime_to_utc_time/1,
     mongotime_to_unixtime/1,
     current_time_in_seconds/0,
     get_secs_from_midnight/0,
@@ -116,6 +117,7 @@ datetime_to_seconds(DateTime) -> base_util:datetime_to_seconds(DateTime).
 mongotime_to_unixtime(MongoTime) -> base_util:mongotime_to_unixtime(MongoTime).
 unixtime_to_mongotime(UnixTime)  -> base_util:unixtime_to_mongotime(UnixTime).
 unixtime_to_localtime(UnixTime)  -> base_util:unixtime_to_localtime(UnixTime).
+unixtime_to_utc_time(UnixTime)  -> base_util:unixtime_to_utc_time(UnixTime).
 current_time_in_seconds() -> base_util:current_time_in_seconds().
 get_secs_from_midnight() -> base_util:get_secs_from_midnight().
 rnd_chars_numbers(Len) -> base_util:rnd_chars_numbers(Len).
