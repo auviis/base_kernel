@@ -27,7 +27,11 @@
     longunixtime/0,
     mongotimestamp/0,
     datetime_to_seconds/1,
+    utc_datetime_to_seconds/1,
+    gmt_datetime_to_seconds/2,
+    local_datetime_to_seconds/1,
     unixtime_to_mongotime/1,
+    unixtime_to_gmt_time/2,
     unixtime_to_localtime/1,
     unixtime_to_utc_time/1,
     mongotime_to_unixtime/1,
@@ -113,11 +117,15 @@ unixtime() -> base_util:unixtime().
 longunixtime() -> base_util:longunixtime().
 mongotimestamp() -> base_util:mongotimestamp().
 %% DateTime = {{2011,11,15},{16,14,57}} = {{Y, M, D}, {h, m, s}}
-datetime_to_seconds(DateTime) -> base_util:datetime_to_seconds(DateTime).
+datetime_to_seconds(DateTime) -> base_util:utc_datetime_to_seconds(DateTime).
+utc_datetime_to_seconds(DateTime) -> base_util:utc_datetime_to_seconds(DateTime).
+gmt_datetime_to_seconds(DateTime,GMTZone) -> base_util:gmt_datetime_to_seconds(DateTime,GMTZone).
+local_datetime_to_seconds(DateTime) -> base_util:local_datetime_to_seconds(DateTime).
 mongotime_to_unixtime(MongoTime) -> base_util:mongotime_to_unixtime(MongoTime).
 unixtime_to_mongotime(UnixTime)  -> base_util:unixtime_to_mongotime(UnixTime).
 unixtime_to_localtime(UnixTime)  -> base_util:unixtime_to_localtime(UnixTime).
 unixtime_to_utc_time(UnixTime)  -> base_util:unixtime_to_utc_time(UnixTime).
+unixtime_to_gmt_time(UnixTime,GMTZone)  -> base_util:unixtime_to_gmt_time(UnixTime,GMTZone).
 current_time_in_seconds() -> base_util:current_time_in_seconds().
 get_secs_from_midnight() -> base_util:get_secs_from_midnight().
 rnd_chars_numbers(Len) -> base_util:rnd_chars_numbers(Len).
