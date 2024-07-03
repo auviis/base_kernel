@@ -40,7 +40,11 @@
     rnd_chars_numbers/1,
     sleep/1
 ]).
-
+-export([
+    get_current_timezone/0,
+    get_secs_from_midnight_of_gmt/1,
+    get_secs_from_midnight_of_gmt/2
+]).
 -export([
     getIpFromCowboyRequest/1,
     getCountryDetailFromIP/1,
@@ -122,10 +126,13 @@ utc_datetime_to_seconds(DateTime) -> base_util:utc_datetime_to_seconds(DateTime)
 gmt_datetime_to_seconds(DateTime,GMTZone) -> base_util:gmt_datetime_to_seconds(DateTime,GMTZone).
 local_datetime_to_seconds(DateTime) -> base_util:local_datetime_to_seconds(DateTime).
 mongotime_to_unixtime(MongoTime) -> base_util:mongotime_to_unixtime(MongoTime).
-unixtime_to_mongotime(UnixTime)  -> base_util:unixtime_to_mongotime(UnixTime).
-unixtime_to_localtime(UnixTime)  -> base_util:unixtime_to_localtime(UnixTime).
-unixtime_to_utc_time(UnixTime)  -> base_util:unixtime_to_utc_time(UnixTime).
-unixtime_to_gmt_time(UnixTime,GMTZone)  -> base_util:unixtime_to_gmt_time(UnixTime,GMTZone).
+unixtime_to_mongotime(TimeInSeconds)  -> base_util:unixtime_to_mongotime(TimeInSeconds).
+unixtime_to_localtime(TimeInSeconds)  -> base_util:unixtime_to_localtime(TimeInSeconds).
+unixtime_to_utc_time(TimeInSeconds)  -> base_util:unixtime_to_utc_time(TimeInSeconds).
+unixtime_to_gmt_time(TimeInSeconds,GMTZone)  -> base_util:unixtime_to_gmt_time(TimeInSeconds,GMTZone).
+get_current_timezone() -> base_util:get_current_timezone().
+get_secs_from_midnight_of_gmt(GMT) -> base_util:get_secs_from_midnight_of_gmt(GMT).
+get_secs_from_midnight_of_gmt(GMT,TimeInSeconds) -> base_util:get_secs_from_midnight_of_gmt(GMT,TimeInSeconds).
 current_time_in_seconds() -> base_util:current_time_in_seconds().
 get_secs_from_midnight() -> base_util:get_secs_from_midnight().
 rnd_chars_numbers(Len) -> base_util:rnd_chars_numbers(Len).
