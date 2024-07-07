@@ -5,7 +5,8 @@
     get/1,
     get_config/1,
     parse_config/1,
-    parse_config/2
+    parse_config/2,
+    reload_config/2
     ]).
 
 -export ([
@@ -103,6 +104,7 @@ parse_config(Keys) ->  base_config:gets(Keys).
 parse_config(Keys,Map) ->  base_config:gets(Keys,Map).
 get_map_element(Keys,Map) ->  base_util:get_map_element(Keys,Map).
 get_map_element(Keys,Map,Default) ->  base_util:get_map_element(Keys,Map,Default).
+reload_config(File,Key) ->  base_config:reload_config(File,Key).
 to_atom(L) -> base_misc:to_atom(L).
 to_list(L) -> base_util:to_list(L).
 to_list_lower(L) -> base_util:to_list_lower(L).
