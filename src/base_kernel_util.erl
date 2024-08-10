@@ -1,5 +1,4 @@
 -module(base_kernel_util).
-
 -export([
     get_app/0,
     get/1,
@@ -71,6 +70,14 @@
 ]).
 
 -export([
+    zip/1,
+    unzip/1,
+    zip_json/1,
+    unzip_json/1,
+    json_encode/1
+]).
+
+-export([
     safe_create_ets/2,
     get_ets_val/2,
     get_ets_val_one/2,
@@ -91,7 +98,17 @@
     is_process_alive/1
 ]).
 -export([get_stacktrace/0]).
--export([get_map_element/2,get_map_element/3]).
+-export([
+    merge_map/1,
+    get_map_element/2,
+    get_map_element/3
+]).
+-export([
+    hexstr_to_bin/1,
+    bin_to_hex/1,
+    generate_uuid/0,
+    generate_uuid_no_hyphen/0
+]).
 -export([
     hot_reload/0,
     hot_reload/1
@@ -104,6 +121,7 @@ parse_config(Keys) ->  base_config:gets(Keys).
 parse_config(Keys,Map) ->  base_config:gets(Keys,Map).
 get_map_element(Keys,Map) ->  base_util:get_map_element(Keys,Map).
 get_map_element(Keys,Map,Default) ->  base_util:get_map_element(Keys,Map,Default).
+merge_map(MapList) ->  base_util:merge_map(MapList).
 reload_config(File,Key) ->  base_config:reload_config(File,Key).
 to_atom(L) -> base_misc:to_atom(L).
 to_list(L) -> base_util:to_list(L).
@@ -176,6 +194,20 @@ get_stacktrace() -> base_misc:get_stacktrace().
 %%loadIPv4DataToCache(FileName) -> base_util:loadIPv4DataToCache(FileName).
 getCountryDetailFromIP(IP) -> base_util:getCountryDetailFromIP(IP).
 getCountryFromIP(IP) -> base_util:getCountryFromIP(IP).
+
+zip(Data) -> base_util:zip(Data).
+unzip(CompressData) -> base_util:unzip(CompressData).
+%%-spec zip_json(json_value()) -> iodata().
+zip_json(Data) -> base_util:zip_json(Data).
+%%-spec unzip_json(iodata()) -> json_value().
+unzip_json(CompressData) -> base_util:unzip_json(CompressData).
+%%-spec json_encode(json_value()) -> iodata().
+json_encode(Data) -> base_util:json_encode(Data).
+
+hexstr_to_bin(HexStr) -> base_util:hexstr_to_bin(HexStr).
+bin_to_hex(Bin) -> base_util:bin_to_hex(Bin).
+generate_uuid() -> base_util:generate_uuid().
+generate_uuid_no_hyphen() -> base_util:generate_uuid_no_hyphen().
 
 hot_reload() -> base_kernel_helper:hot_reload().
 hot_reload(Modules) -> base_kernel_helper:hot_reload(Modules).
