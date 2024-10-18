@@ -21,6 +21,8 @@
   connect_database/1,
   get_db_connection/0,
   get_db_connection/1,
+  db_disconnect/0,
+  db_disconnect/1,
   verify_blockchain_signed/3
 ]).
 -export([
@@ -191,6 +193,11 @@ get_db_connection()->
 get_db_connection(Database) ->
   base_kernel_helper:get_db_connection(Database).
 
+db_disconnect()->
+  base_kernel_helper:db_disconnect(default).
+
+db_disconnect(Database) ->
+  base_kernel_helper:db_disconnect(Database).
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% interface functions %%%%%%%%%%%%%%%%%%%%%%%%%
 set_app(App) ->

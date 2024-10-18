@@ -39,7 +39,10 @@ produce_message(Topic,Key,Content) ->
   lib_base_message_queue:produce_message(Topic,Key,Content).
 
 subscribe(Node,Topic,Key, {M,F}) ->
-  lib_base_message_queue:subscribe(Node,Topic,Key, {M,F}).
+  lib_base_message_queue:subscribe(Node,Topic,Key, {M,F});
+
+subscribe(Node,Topic,Key, {M,F,Args}) ->
+  lib_base_message_queue:subscribe(Node,Topic,Key, {M,F,Args}).
 
 un_subscribe(Node,Topic,Key) ->
   lib_base_message_queue:un_subscribe(Node,Topic,Key).
@@ -67,7 +70,10 @@ ack_message_once(Topic,Key,Idx) ->
 
 %% global
 global_subscribe(Service,Topic,Key, {M,F}) ->
-  lib_base_message_queue:global_subscribe(Service,Topic,Key, {M,F}).
+  lib_base_message_queue:global_subscribe(Service,Topic,Key, {M,F});
+
+global_subscribe(Service,Topic,Key, {M,F,Args}) ->
+  lib_base_message_queue:global_subscribe(Service,Topic,Key, {M,F,Args}).
 
 global_un_subscribe(Service,Topic,Key) ->
   lib_base_message_queue:global_un_subscribe(Service,Topic,Key).
