@@ -45,6 +45,9 @@
   execute_template_sync/2,
   execute_template_sync/3,
   execute_template_sync/4,
+  execute_template_sync_with_timeout/3,
+  execute_template_sync_with_timeout/4,
+  execute_template_sync_with_timeout/5,
   get_process/1,
   get_process/2,
   stop_process/2,
@@ -163,6 +166,14 @@ execute_template_sync(Module,Id,Template) ->
   base_kernel_helper:execute_template_sync(Module,Id,Template).
 execute_template_sync(Module,Id,Template,State) ->
   base_kernel_helper:execute_template_sync(Module,Id,Template,State).
+
+execute_template_sync_with_timeout(Module,Template,TimeOut) ->
+  base_kernel_helper:execute_template_sync_with_timeout(Module,Template,TimeOut).
+execute_template_sync_with_timeout(Module,Id,Template,TimeOut) ->
+  base_kernel_helper:execute_template_sync_with_timeout(Module,Id,Template,TimeOut).
+execute_template_sync_with_timeout(Module,Id,Template,State,TimeOut) ->
+  base_kernel_helper:execute_template_sync_with_timeout(Module,Id,Template,State,TimeOut).
+
 get_process(Module) ->
   base_kernel_process:getProcess(Module).
 
