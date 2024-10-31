@@ -89,6 +89,9 @@
 ]).
 
 -export([
+	rest_getFirebaseAccessToken/0
+]).
+-export([
 	jwt_encode_hs256/2,
 	jwt_decode_hs256/2
 ]).
@@ -204,25 +207,27 @@ rest_parser_header(Req) ->	base_rest_handle:parser_header(Req,false).
 
 rest_token_validate(Token) ->	base_rest_handle:token_validate(Token,false) .
 
-rest_apple_revoke(ClientId, ClientSecret,RefreshToken) -> base_rest_handle:apple_revoke(ClientId, ClientSecret,RefreshToken).
+rest_apple_revoke(ClientId, ClientSecret,RefreshToken) -> base_app_store_util:apple_revoke(ClientId, ClientSecret,RefreshToken).
 
-rest_extractAppleToken(RawToken) ->	base_rest_handle:extractAppleToken(RawToken).
+rest_extractAppleToken(RawToken) ->	base_app_store_util:extractAppleToken(RawToken).
 
-rest_extractFacebookToken(RawToken) ->	base_rest_handle:extractFacebookToken(RawToken).
+rest_extractFacebookToken(RawToken) ->	base_facebook_util:extractFacebookToken(RawToken).
 
-rest_getGooglePaymentToken(GameId) -> base_rest_handle:get_google_payment_access_token(GameId).
+rest_getGooglePaymentToken(GameId) -> base_google_play_util:get_google_payment_access_token(GameId).
 
-rest_extractGoogleToken(RawToken) ->	base_rest_handle:extractGoogleToken(RawToken).
+rest_extractGoogleToken(RawToken) ->	base_google_play_util:extractGoogleToken(RawToken).
 
 rest_createToken(List) ->	base_rest_handle:createToken(List).
 
-rest_createGoogleClientSecretToken(GameId,ISS,IAT) ->	base_rest_handle:createGoogleClientSecretToken(GameId,ISS,IAT).
+rest_createGoogleClientSecretToken(GameId,ISS,IAT) ->	base_google_play_util:createGoogleClientSecretToken(GameId,ISS,IAT).
 
-rest_createGoogleClientSecretToken(GameId,ISS,IAT,EXP) ->	base_rest_handle:createGoogleClientSecretToken(GameId,ISS,IAT,EXP).
+rest_createGoogleClientSecretToken(GameId,ISS,IAT,EXP) ->	base_google_play_util:createGoogleClientSecretToken(GameId,ISS,IAT,EXP).
 
-rest_createAppleClientSecretToken(ISS,IAT,EXP) ->	base_rest_handle:createAppleClientSecretToken(ISS,IAT,EXP).
+rest_createAppleClientSecretToken(ISS,IAT,EXP) ->	base_app_store_util:createAppleClientSecretToken(ISS,IAT,EXP).
 
-rest_createAppleClientSecretToken(ISS,IAT,EXP,ClientId) ->	base_rest_handle:createAppleClientSecretToken(ISS,IAT,EXP,ClientId).
+rest_createAppleClientSecretToken(ISS,IAT,EXP,ClientId) ->	base_app_store_util:createAppleClientSecretToken(ISS,IAT,EXP,ClientId).
+
+rest_getFirebaseAccessToken() -> base_firebase_util:get_access_token().
 
 rest_getUserId(Req) ->	base_rest_handle:getUserId(Req).
 
