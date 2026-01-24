@@ -1,7 +1,9 @@
 -module(base_kernel_tcp).
 -export([
     start_tcp_service/2,
-    start_tcp_service/3
+    start_tcp_service/3,
+    start_advance_tcp_service/2,
+    start_advance_tcp_service/3
 ]).
 -export(
     [
@@ -44,3 +46,8 @@ start_tcp_service(Module,TCPKey) ->
 
 start_tcp_service(Module,TCPKey,Port) ->
     base_kernel_helper:start_tcp_service(Module,TCPKey,Port).
+start_advance_tcp_service(Module,TCPKey) ->
+    base_kernel_helper:start_advance_tcp_service(Module,TCPKey).
+
+start_advance_tcp_service(Module,TCPKey,Port) ->
+    base_kernel_helper:start_advance_tcp_service(Module,TCPKey,Port).
