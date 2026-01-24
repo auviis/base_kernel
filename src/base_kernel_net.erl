@@ -125,29 +125,29 @@
 %% ---------------------------------------------------------
 %% ------------------------WEB SOCKET ----------------------
 %% ---------------------------------------------------------
-decode_int8(Bin) ->	base_net_encoder:decode_int8(Bin).
-decode_int16(Bin) ->	base_net_encoder:decode_int16(Bin).
-decode_int32(Bin) ->	base_net_encoder:decode_int32(Bin).
-decode_int64(Bin) ->	base_net_encoder:decode_int64(Bin).
-decode_string(Bin) ->	base_net_encoder:decode_string(Bin).
-decode(Cmd, Bin) ->	base_net_encoder:decode(Cmd, Bin,protocol).
-decode(Cmd, Bin,ModuleDecode) ->	base_net_encoder:decode(Cmd, Bin,ModuleDecode).
-decode_list(F, Bin) ->	base_net_encoder:decode_list(F, Bin).
+decode_int8(Bin) ->	base_websocket_encoder:decode_int8(Bin).
+decode_int16(Bin) ->	base_websocket_encoder:decode_int16(Bin).
+decode_int32(Bin) ->	base_websocket_encoder:decode_int32(Bin).
+decode_int64(Bin) ->	base_websocket_encoder:decode_int64(Bin).
+decode_string(Bin) ->	base_websocket_encoder:decode_string(Bin).
+decode(Cmd, Bin) ->	base_websocket_encoder:decode(Cmd, Bin,protocol).
+decode(Cmd, Bin,ModuleDecode) ->	base_websocket_encoder:decode(Cmd, Bin,ModuleDecode).
+decode_list(F, Bin) ->	base_websocket_encoder:decode_list(F, Bin).
 %% ---------------------------------------------------------
-encode_int8(Val, Bin) ->	base_net_encoder:encode_int8(Val, Bin).
-encode_int16(Val, Bin) ->	base_net_encoder:encode_int16(Val, Bin).
-encode_int32(Val, Bin) ->	base_net_encoder:encode_int32(Val, Bin).
-encode_int64(Val, Bin) ->	base_net_encoder:encode_int64(Val, Bin).
-encode_string(S, Bin) ->	base_net_encoder:encode_string(S, Bin).
-encode(Cmd, List) ->	base_net_encoder:encode(Cmd, List,protocol).
-encode(Cmd, List,ModuleEncode) ->	base_net_encoder:encode(Cmd, List,ModuleEncode).
-encode_list(F, List, Bin) ->	base_net_encoder:encode_list(F, List, Bin).
+encode_int8(Val, Bin) ->	base_websocket_encoder:encode_int8(Val, Bin).
+encode_int16(Val, Bin) ->	base_websocket_encoder:encode_int16(Val, Bin).
+encode_int32(Val, Bin) ->	base_websocket_encoder:encode_int32(Val, Bin).
+encode_int64(Val, Bin) ->	base_websocket_encoder:encode_int64(Val, Bin).
+encode_string(S, Bin) ->	base_websocket_encoder:encode_string(S, Bin).
+encode(Cmd, List) ->	base_websocket_encoder:encode(Cmd, List,protocol).
+encode(Cmd, List,ModuleEncode) ->	base_websocket_encoder:encode(Cmd, List,ModuleEncode).
+encode_list(F, List, Bin) ->	base_websocket_encoder:encode_list(F, List, Bin).
 
 %% ---------------------------------------------------------
-pack(Cmd, Data) ->	base_net_encoder:pack(Cmd, Data, 0).
-pack(Cmd, Data, _Zip) ->	base_net_encoder:pack(Cmd, Data, _Zip).
+pack(Cmd, Data) ->	base_websocket_encoder:pack(Cmd, Data, 0).
+pack(Cmd, Data, _Zip) ->	base_websocket_encoder:pack(Cmd, Data, _Zip).
 %% ---------------------------------------------------------
-handle_decode(Bin) ->	base_net_encoder:handle_decode(Bin).
+handle_decode(Bin) ->	base_websocket_encoder:handle_decode(Bin).
 %% ---------------------------------------------------------
 websocket_init(Req,State) ->
 	base_socket_handle:init(Req,State).
