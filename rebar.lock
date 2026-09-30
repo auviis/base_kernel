@@ -66,7 +66,7 @@
   0},
  {<<"mongodb">>,
   {git,"https://github.com/auviis/mongodb-erlang",
-       {ref,"8571d76d703afb8e558d8fa4e83b6e107e8a9d6a"}},
+       {ref,"cc8600be46742c5248ec9f7de7befeba65d175eb"}},
   0},
  {<<"mysql">>,
   {git,"https://github.com/mysql-otp/mysql-otp",
