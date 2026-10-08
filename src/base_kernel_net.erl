@@ -77,6 +77,8 @@
 	rest_extractFacebookToken/1,
 	rest_extractAppleToken/1,
 	rest_apple_revoke/3,
+	rest_setBearAuthorization/3,
+	rest_clearBearAuthorization/1,
 	rest_createToken/1,
 	rest_getEmail/1,
 	rest_getEmail/0,
@@ -218,6 +220,10 @@ rest_getGooglePaymentToken(GameId) -> base_google_play_util:get_google_payment_a
 rest_extractGoogleToken(RawToken) ->	base_google_play_util:extractGoogleToken(RawToken).
 
 rest_createToken(List) ->	base_rest_handle:createToken(List).
+
+rest_setBearAuthorization(AccessToken,DataList,TimeOut) ->	base_rest_handle:setBearAuthorization(AccessToken,DataList,TimeOut).
+
+rest_clearBearAuthorization(AccessToken) -> base_rest_handle:clearBearAuthorization(AccessToken).
 
 rest_createGoogleClientSecretToken(GameId,ISS,IAT) ->	base_google_play_util:createGoogleClientSecretToken(GameId,ISS,IAT).
 
